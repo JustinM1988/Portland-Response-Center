@@ -1,0 +1,34 @@
+{
+  "branding": {
+    "title": "Portland Response Center",
+    "city": "City of Portland, TX"
+  },
+  "map": {
+    "center": [
+      -97.323,
+      27.877
+    ],
+    "zoom": 12
+  },
+  "feeds": {
+    "nws_alerts": "https://api.weather.gov/alerts/active?area=TX",
+    "usgs_quakes": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson"
+  },
+  "layers": {
+    "critical_facilities": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/0",
+    "damage_assessments": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/1",
+    "equipment": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/2",
+    "fuel_stations": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/3",
+    "lift_stations": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/4",
+    "road_closures": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/5",
+    "shelters": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/6",
+    "staging_areas": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/7",
+    "traffic_signals": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/8",
+    "water_tanks": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/9",
+    "evac_routes": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/10",
+    "flood_areas": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/13",
+    "weather_alert_polygons": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/portland_eoc_inventory/FeatureServer/14",
+    "waterlines_base": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/Waterlines_Authoritative(Feeding_Map)_view/FeatureServer",
+    "streets_base": "https://services3.arcgis.com/DAf01WuIltSLujAv/arcgis/rest/services/StreetCenterlines_SNAPPED/FeatureServer"
+  }
+}

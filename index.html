@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portland Response Center</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/dark/main.css" />
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://js.arcgis.com/4.29/"></script>
+</head>
+<body>
+  <div id="topbar">
+    <div class="brand">
+      <div class="title">Portland Response Center</div>
+      <div class="subtitle">City of Portland, TX</div>
+    </div>
+    <div class="banner">
+      <div id="banner-label">EMERGENCY</div>
+      <div id="banner-ticker" title="Hover to pause"></div>
+      <div id="clock"></div>
+    </div>
+  </div>
+
+  <div id="shell">
+    <nav id="sidebar">
+      <button class="nav-btn active" data-panel="dashboard">Dashboard</button>
+      <button class="nav-btn" data-panel="map">Map</button>
+      <button class="nav-btn" data-panel="police">Police</button>
+      <div class="divider"></div>
+      <div class="small">Quick Toggles</div>
+      <button class="nav-small" id="toggle-radar">Radar</button>
+      <button class="nav-small" id="toggle-alerts">Alert Polygons</button>
+    </nav>
+
+    <main id="content">
+      <section class="panel" id="panel-dashboard">
+        <div class="grid-3">
+          <div class="card metric">
+            <div class="metric-label">Active Alerts</div>
+            <div class="metric-value" id="metric-alerts">--</div>
+            <div class="metric-sub" id="metric-alerts-breakdown"></div>
+          </div>
+          <div class="card metric">
+            <div class="metric-label">Roads Closed</div>
+            <div class="metric-value" id="metric-closures">--</div>
+            <div class="metric-sub">from Road_Closures layer</div>
+          </div>
+          <div class="card metric">
+            <div class="metric-label">Open Shelters</div>
+            <div class="metric-value" id="metric-shelters">--</div>
+            <div class="metric-sub">with available capacity</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" id="card-news">
+            <div class="card-title">Live News (TX & Coastal Bend)</div>
+            <ul id="news-list" class="list"></ul>
+            <div class="card-foot small">Tip: Live RSS often needs a proxy; these are curated links for static hosting.</div>
+          </div>
+
+          <div class="card" id="card-weather">
+            <div class="card-title">Weather Overview</div>
+            <ul id="weather-list" class="list"></ul>
+            <div class="card-foot small">NWS API powering alerts and summaries.</div>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div class="card">
+            <div class="card-title">Situation Notes</div>
+            <div id="sitrep" class="sitrep">No significant issues reported. System running in demo mode.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" id="panel-map">
+        <div id="map"></div>
+        <div id="map-controls">
+          <div class="group">
+            <div class="label">Layers</div>
+            <label><input type="checkbox" data-layer="shelters" checked /> Shelters</label>
+            <label><input type="checkbox" data-layer="closures" checked /> Road Closures</label>
+            <label><input type="checkbox" data-layer="equipment" checked /> Equipment</label>
+            <label><input type="checkbox" data-layer="alerts" checked /> Weather Alerts</label>
+          </div>
+          <div class="group">
+            <div class="label">Smart Query</div>
+            <input id="addr" placeholder="Search address (uses ArcGIS World Geocoder)" />
+            <div class="row">
+              <input id="bufferMiles" type="number" value="3" min="0.1" step="0.1" /> miles
+              <button id="run-buffer">Waterlines near address</button>
+            </div>
+            <div class="row">
+              <input id="th-cap" type="number" value="50" />% capacity
+              <input id="th-fuel" type="number" value="30" />% fuel
+              <button id="run-eq">Flag low equipment</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel hidden" id="panel-police">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Sectors (Cleared vs Pending)</div>
+            <div class="placeholder">Hook to PD/SAR layers for sector progress.</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Incidents Feed</div>
+            <div class="placeholder">Connect to CAD/Active Incidents if available; otherwise a manual log.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
